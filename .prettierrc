@@ -1,0 +1,13 @@
+{
+  "semi": false,
+  "importOrder": ["^react$"],
+  "importOrderSeparation": true,
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": false,
+  "arrowParens": "always",
+  "trailingComma": "es5",
+  "endOfLine": "lf",
+  "bracketSpacing": true
+}
