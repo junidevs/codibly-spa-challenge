@@ -25,7 +25,7 @@ export interface UseHandleProductsReturn {
 const useHandleProducts = (): UseHandleProductsReturn => {
   const [inputValue, setInputValue] = useState("")
 
-  const [page, setPage] = useLocalStorage("page", 2)
+  const [page, setPage] = useLocalStorage("page", 1)
 
   const debouncedSearchTerm = useDebounce(inputValue, 1000)
   const limitOfItems = 12

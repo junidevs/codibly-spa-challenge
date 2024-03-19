@@ -32,7 +32,7 @@ const App = () => {
       px={10}
       sx={{
         height: "100vh",
-        backgroundColor: "grey.800",
+        backgroundColor: "grey.300",
         justifyContent: "center",
       }}
     >
