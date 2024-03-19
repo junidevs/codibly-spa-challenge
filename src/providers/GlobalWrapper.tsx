@@ -7,6 +7,7 @@ import QueryClientProvider from "./QueryClientProvider"
 import { SnackbarProvider } from "@/providers/SnackbarProvider"
 import theme from "@/theme/v2"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+import { ProductsProvider } from "@/providers/ProductsProvider/ProductsProvider"
 
 export type AppWrapperProps = {
   children: ReactElement
@@ -43,7 +44,8 @@ const AppWrapper = ({ children }: AppWrapperProps) => {
 
         (props) => (
           <QueryClientProvider reactQueryClient={queryClient} {...props} />
-        )
+        ),
+        (props) => <ProductsProvider {...props} />
       ),
     [queryClient, themeWithMaterialLocale]
   )

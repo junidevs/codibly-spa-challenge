@@ -10,7 +10,16 @@ declare global {
     code: string
     context: Record<string, string>
   }
-
+  type TResSearchByQuery<T> = {
+    page?: number
+    per_page?: number
+    total_pages?: number
+    data: T
+    support: {
+      url: string
+      text: string
+    }
+  }
   type TProduct = {
     id: number
     name: string
