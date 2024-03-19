@@ -8,6 +8,7 @@ import {
   TableRow,
 } from "@mui/material"
 import { ChangeEvent, memo, ReactNode } from "react"
+import Stack from "@mui/material/Stack"
 
 export type TTableWrapper = {
   header: ReactNode
@@ -26,25 +27,38 @@ const TableWrapper = ({
   totalPages,
 }: TTableWrapper) => {
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650, p: 12 }} aria-label="simple table">
-        <TableHead sx={{ p: 12 }}>
-          <TableRow>{header}</TableRow>
-        </TableHead>
-        <TableBody>{rows}</TableBody>
-      </Table>
+    <Stack>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650, p: 12 }} aria-label="simple table">
+          <TableHead sx={{ p: 12 }}>
+            <TableRow>{header}</TableRow>
+          </TableHead>
+          <TableBody>{rows}</TableBody>
+        </Table>
+      </TableContainer>
       {allowPagination && (
-        <Pagination
-          page={currentPage}
-          onChange={onChangePagination}
-          count={totalPages}
-          color="primary"
-          size="small"
-          sx={{ marginLeft: "auto", marginRight: "auto" }}
-          data-testid="Table-Pagination"
-        />
+        <Stack
+          sx={{
+            justifyContent: "center",
+            alignItems: "center",
+            my: 2.5,
+            backgroundColor: "#fff",
+            p: 5,
+            borderRadius: 1,
+          }}
+        >
+          <Pagination
+            page={currentPage}
+            onChange={onChangePagination}
+            count={totalPages}
+            color="primary"
+            size="small"
+            sx={{ marginLeft: "auto", marginRight: "auto" }}
+            data-testid="Table-Pagination" // tests cases
+          />
+        </Stack>
       )}
-    </TableContainer>
+    </Stack>
   )
 }
 

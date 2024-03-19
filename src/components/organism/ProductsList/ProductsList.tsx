@@ -10,6 +10,7 @@ import useProductsContext from "@/hooks/useProductsContext/useProductsContext"
 
 const ProductsList = () => {
   const { setProductPage, currentProductPage } = useProductsContext()
+  console.log({ currentProductPage })
   const { products, isFetchingProducts, isLoadingProducts, errorProducts } =
     useProductsProvider()
 
@@ -103,13 +104,12 @@ const ProductsList = () => {
         allowPagination: true,
         totalPages: products.total_pages,
         currentPage: currentProductPage,
-        onChangePagination: (event, pageNum) => {
-          console.log("PAGE CHANGED", { event, pageNum })
+        onChangePagination: (_, pageNum) => {
           setProductPage(pageNum)
         },
       }
     : {}
-  console.log({ productsPGN: products })
+
   return (
     <>
       <TableWrapper

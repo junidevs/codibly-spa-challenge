@@ -11,9 +11,9 @@ const useProductsQuery = ({
     // we could use something like this to get higher service design abstraction https://github.com/lukemorales/query-key-factory
     queryKey: ["useProducts", query, page, per_page],
     queryFn: () => getProducts({ query, per_page, page }),
-    // enabled,
+    enabled,
     // placeholderData: keepPreviousData,
-    // staleTime: Infinity,
+    staleTime: Infinity,
   })
   // https://docs.github.com/en/rest/using-the-rest-api/using-pagination-in-the-rest-api?apiVersion=2022-11-28
   // here we could create infinite query for fetching more than only first page
