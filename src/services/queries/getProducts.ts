@@ -18,6 +18,7 @@ const getProducts = async ({ query, per_page, page }: TGetProductsProps) => {
       },
     }
   )
+
   return data
 }
 

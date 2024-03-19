@@ -5,15 +5,14 @@ import ErrorIcon from "@mui/icons-material/Error"
 import palette from "@/theme/palette"
 import TableWrapper, { TTableWrapper } from "@/components/organism/Table/Table"
 import productsGuards from "@/guards/productsGuard/productsGuards"
-import useHandleProducts from "@/hooks/useHandleProducts/useHandleProducts"
 import useProductsProvider from "@/hooks/useProductsContext/useProductsContext"
+import useProductsContext from "@/hooks/useProductsContext/useProductsContext"
 
 const ProductsList = () => {
-  const { setProductPage, currentProductPage } = useHandleProducts()
+  const { setProductPage, currentProductPage } = useProductsContext()
   const { products, isFetchingProducts, isLoadingProducts, errorProducts } =
     useProductsProvider()
 
-  console.log({ products213: products })
   if (isLoadingProducts) {
     return (
       <ProductsIndicator
@@ -110,7 +109,7 @@ const ProductsList = () => {
         },
       }
     : {}
-  console.log({ products })
+  console.log({ productsPGN: products })
   return (
     <>
       <TableWrapper
@@ -123,28 +122,26 @@ const ProductsList = () => {
           </>
         }
         rows={
-          <>
-            {productsGuards(products)
-              ? products.data.map(({ id, name, year }) => (
-                  <TableRow key={id}>
-                    <TableCell align="left">{id}</TableCell>
-                    <TableCell align="left">{name}</TableCell>
-                    <TableCell align="left">{year}</TableCell>
+          productsGuards(products)
+            ? products.data.map(({ id, name, year }) => (
+                <TableRow key={id}>
+                  <TableCell align="left">{id}</TableCell>
+                  <TableCell align="left">{name}</TableCell>
+                  <TableCell align="left">{year}</TableCell>
+                </TableRow>
+              ))
+            : !Array.isArray(products.data) && (
+                <>
+                  {" "}
+                  <TableRow>
+                    <TableCell key={products.data.id} align="left">
+                      {products.data.id}
+                    </TableCell>
+                    <TableCell align="left">{products.data.name}</TableCell>
+                    <TableCell align="left">{products.data.year}</TableCell>
                   </TableRow>
-                ))
-              : !Array.isArray(products.data) && (
-                  <>
-                    {" "}
-                    <TableRow>
-                      <TableCell key={products.data.id} align="left">
-                        {products.data.id}
-                      </TableCell>
-                      <TableCell align="left">{products.data.name}</TableCell>
-                      <TableCell align="left">{products.data.year}</TableCell>
-                    </TableRow>
-                  </>
-                )}
-          </>
+                </>
+              )
         }
       />
     </>

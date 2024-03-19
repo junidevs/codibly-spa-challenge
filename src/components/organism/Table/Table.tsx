@@ -7,7 +7,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material"
-import { ChangeEvent, ReactNode } from "react"
+import { ChangeEvent, memo, ReactNode } from "react"
 
 export type TTableWrapper = {
   header: ReactNode
@@ -48,4 +48,4 @@ const TableWrapper = ({
   )
 }
 
-export default TableWrapper
+export default memo(TableWrapper)

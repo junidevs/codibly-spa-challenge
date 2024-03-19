@@ -17,6 +17,7 @@ export const ProductsProvider = ({ children }: { children: ReactNode }) => {
     setProductPage,
     currentProductPage,
   } = useHandleProducts()
+
   return (
     <ProductsContext.Provider
       value={{

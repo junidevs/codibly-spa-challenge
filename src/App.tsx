@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography"
 
 import ProductsList from "@/components/organism/ProductsList"
 import useProductsProvider from "@/hooks/useProductsContext/useProductsContext"
+import { memo } from "react"
 
 const App = () => {
   const { onChange } = useProductsProvider()
@@ -45,4 +46,4 @@ const App = () => {
   )
 }
 
-export default App
+export default memo(App)
