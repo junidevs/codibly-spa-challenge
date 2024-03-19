@@ -6,6 +6,7 @@ import QueryClientProvider from "./QueryClientProvider"
 
 import { SnackbarProvider } from "@/providers/SnackbarProvider"
 import theme from "@/theme/v2"
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 
 export type AppWrapperProps = {
   children: ReactElement
@@ -39,6 +40,7 @@ const AppWrapper = ({ children }: AppWrapperProps) => {
       combineComponents(
         (props) => <ThemeProvider theme={themeWithMaterialLocale} {...props} />,
         SnackbarProvider,
+
         (props) => (
           <QueryClientProvider reactQueryClient={queryClient} {...props} />
         )
@@ -46,7 +48,14 @@ const AppWrapper = ({ children }: AppWrapperProps) => {
     [queryClient, themeWithMaterialLocale]
   )
 
-  return <AppProvider>{children}</AppProvider>
+  return (
+    <AppProvider>
+      <>
+        <ReactQueryDevtools initialIsOpen={false} />
+        {children}
+      </>
+    </AppProvider>
+  )
 }
 
 export default memo(AppWrapper)

@@ -34,20 +34,13 @@ const MuiButton: Required<Required<ThemeOptions>["components"]>["MuiButton"] = {
         borderWidth: "2px",
       },
     },
-    outlinedSizeSmall: {
-      paddingBlock: 2,
-    },
-    outlinedSizeLarge: {
-      paddingBlock: 8,
-      paddingInline: 30,
-    },
   },
   defaultProps: {
     disableElevation: true,
   },
   variants: [
     {
-      props: { variant: "white" },
+      props: { variant: "text" },
       style: {
         color: palette.primary.main,
         backgroundColor: palette.ccWhite.main,

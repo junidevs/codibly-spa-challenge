@@ -15,19 +15,30 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest",
+    "mock": "npx tsx ./src/mocks/http.ts",
+    "test:typecheck": "tsc --project tsconfig.json",
+    "prettier:write": "prettier . --write --config .prettierrc",
+    "prettier:check": "prettier . --check --config .prettierrc",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
+    "@hookform/resolvers": "^3.3.4",
     "@mui/icons-material": "^5.15.13",
     "@mui/material": "^5.15.13",
     "@tanstack/react-query": "^5.28.4",
+    "@tanstack/react-query-devtools": "^5.28.4",
     "@types/node": "^20.11.29",
     "axios": "^1.6.8",
     "notistack": "^3.0.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.1",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.27.7",
