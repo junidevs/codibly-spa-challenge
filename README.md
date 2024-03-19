@@ -61,5 +61,6 @@ For a production application, consider enhancing the ESLint configuration to ena
     ```bash
     npm run dev
     ```
+![image](https://github.com/junidevs/codibly-spa-challenge/assets/52135894/9c995b99-1232-4b20-9b60-1b6a8145913c)
 
 
