@@ -10,7 +10,7 @@ import useProductsContext from "@/hooks/useProductsContext/useProductsContext"
 
 const ProductsList = () => {
   const { setProductPage, currentProductPage } = useProductsContext()
-  console.log({ currentProductPage })
+
   const { products, isFetchingProducts, isLoadingProducts, errorProducts } =
     useProductsProvider()
 

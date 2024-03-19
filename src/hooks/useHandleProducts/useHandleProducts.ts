@@ -69,7 +69,7 @@ const useHandleProducts = (): UseHandleProductsReturn => {
     ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
       const numericValue = parseFloat(value)
       const isValidNumber = !isNaN(numericValue) && numericValue <= limitOfItems
-      console.log({ isValidNumber })
+
       if (isValidNumber) {
         setInputValue(value)
       } else setInputValue("")

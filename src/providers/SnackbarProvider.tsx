@@ -19,6 +19,7 @@ export type TSnackbarProvider = {
   children: ReactNode
 }
 
+// provider for notifications like : https://mui.com/material-ui/react-snackbar/
 export const SnackbarProvider = ({ children }: TSnackbarProvider) => {
   const theme = useTheme()
 
